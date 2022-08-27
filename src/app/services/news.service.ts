@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -17,16 +18,15 @@ export class NewsService {
 
   constructor(private http: HttpClient) { }
 
-  initSource() {
+  initSource(): Observable<any> {
     return this.http.get(this.BASE_URL.concat(this.SOURCES.concat('en')).concat(this.API_KEY));
   }
   
-  getArticlesById(source: string) {
-    return this.http.get(this.BASE_URL.concat(this.HEADLINE.concat(source)).concat(this.US).concat(this.API_KEY));
-  }
-
-  initArticles() {
+  initArticles(): Observable<any> {
     return this.getArticlesById('techcrunch');
   }  
-
+  
+  getArticlesById(source: string): Observable<any> {
+    return this.http.get(this.BASE_URL.concat(this.HEADLINE.concat(source)).concat(this.US).concat(this.API_KEY));
+  }
 }
