@@ -15,7 +15,7 @@ export class CorsInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     const newRequest = request.clone({
       setHeaders: {
-        'Access-Control-Allow-Origin': '*'
+        'Access-Control-Allow-Origin': 'https://news-portal-angular.netlify.app'
       }
     });
     return next.handle(newRequest);
