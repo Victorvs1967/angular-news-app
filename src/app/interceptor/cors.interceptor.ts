@@ -15,7 +15,7 @@ export class CorsInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     request = request.clone({
       setHeaders: {
-        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Origin': ' https://newsapi.org/v2/top-headlines',
         'Access-Control-Allow-Headers': 'Access-Control-Allow-Headers, Origin, Content-Type, Accept, Authorization',
         'Access-Control-Allow-Methods': '*',
         "Content-Type": "application/json"
