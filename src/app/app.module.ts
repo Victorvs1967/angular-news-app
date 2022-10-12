@@ -22,7 +22,7 @@ import { CorsInterceptor } from './interceptor/cors.interceptor';
     HttpClientModule,
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: CorsInterceptor, multi: true },
+    // { provide: HTTP_INTERCEPTORS, useClass: CorsInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })
