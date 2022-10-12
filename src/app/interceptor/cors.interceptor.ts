@@ -16,7 +16,7 @@ export class CorsInterceptor implements HttpInterceptor {
     const newRequest = request.clone({
       setHeaders: {
         'Access-Control-Allow-Headers': 'X-Requested-With, Origin, Content-Type, Accept, Authorization',
-        'Origin': 'https://newsapi.org',
+        'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, DELETE',
         "Content-Type": "application/json"
       }
