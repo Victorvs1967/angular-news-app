@@ -15,7 +15,7 @@ export class CorsInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     const newRequest = request.clone({
       setHeaders: {
-        'Access-Control-Allow-Headers': 'X-Requested-With, Origin, Content-Type, Accept, Authorization',
+        'Access-Control-Allow-Headers': 'Access-Control-Allow-Headers, X-Requested-With, Access-Control-Allow-Origin, Content-Type, Accept, Authorization',
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, DELETE',
         "Content-Type": "application/json"
