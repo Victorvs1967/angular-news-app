@@ -13,14 +13,14 @@ export class CorsInterceptor implements HttpInterceptor {
   constructor() {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    request = request.clone({
+    const newRequest = request.clone({
       setHeaders: {
-        'Access-Control-Allow-Headers': 'Access-Control-Allow-Headers, Access-Control-Allow-Origin, Origin, Content-Type, Accept, Authorization',
-        'Access-Control-Allow-Origin': 'https://newsapi.org',
+        'Access-Control-Allow-Headers': 'X-Requested-With, Origin, Content-Type, Accept, Authorization',
+        'Origin': 'https://newsapi.org',
         'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, DELETE',
         "Content-Type": "application/json"
       }
     });
-    return next.handle(request);
+    return next.handle(newRequest);
   }
 }
