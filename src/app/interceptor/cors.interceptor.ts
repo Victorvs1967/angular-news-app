@@ -16,7 +16,7 @@ export class CorsInterceptor implements HttpInterceptor {
     request = request.clone({
       setHeaders: {
         'Access-Control-Allow-Origin': 'https://news-portal-angular.netlify.app',
-        'Access-Control-Allow-Header': '*',
+        'Access-Control-Allow-Headers': '*',
       }
     });
     return next.handle(request);
