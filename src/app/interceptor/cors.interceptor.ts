@@ -16,8 +16,9 @@ export class CorsInterceptor implements HttpInterceptor {
     request = request.clone({
       setHeaders: {
         'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers': 'Access-Control-Allow-Headers, Origin, Content-Type, Accept, Authorization',
         'Access-Control-Allow-Methods': '*',
-        'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization',
+        "Content-Type": "application/json"
       }
     });
     return next.handle(request);
