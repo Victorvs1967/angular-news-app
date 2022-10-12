@@ -13,11 +13,11 @@ export class CorsInterceptor implements HttpInterceptor {
   constructor() {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    const newRequest = request.clone({
+    request = request.clone({
       setHeaders: {
-        'Access-Control-Allow-Origin': '*'
+        // 'Access-Control-Allow-Origin': '*'
       }
     });
-    return next.handle(newRequest);
+    return next.handle(request);
   }
 }
